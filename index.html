@@ -1,214 +1,202 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>2048 — Cyber Edition | CyberTecno</title>
-  <style>
-    :root{
-      --bg:#0b0f1a;
-      --panel:#071022;
-      --neon1: #00ffd5;
-      --neon2: #7b61ff;
-      --glass: rgba(255,255,255,0.03);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    html,body{height:100%;margin:0;background:radial-gradient(circle at 10% 10%, rgba(123,97,255,0.06), transparent 15%), radial-gradient(circle at 90% 90%, rgba(0,255,213,0.03), transparent 15%), var(--bg);color:#dfe7ff}
-    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px}
-    .card{width:360px;padding:20px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 4px 30px rgba(0,0,0,0.6);backdrop-filter: blur(6px);border:1px solid rgba(255,255,255,0.03)}
-    h1{margin:0 0 8px 0;font-size:20px;text-align:center}
-    .meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-    .score{background:linear-gradient(90deg,var(--neon2),var(--neon1));padding:6px 10px;border-radius:8px;color:#041028;font-weight:700}
-    .grid{display:grid;grid-template-columns:repeat(4,72px);grid-gap:12px;justify-content:center;padding:12px;background:var(--panel);border-radius:10px}
-    .cell{width:72px;height:72px;border-radius:8px;background:rgba(255,255,255,0.02);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:#dfe7ff}
-    .tile2{background:linear-gradient(90deg, rgba(0,255,213,0.06), rgba(123,97,255,0.04));color:var(--neon1)}
-    .tile4{background:linear-gradient(90deg, rgba(123,97,255,0.08), rgba(0,255,213,0.02));color:var(--neon2)}
-    .tile8{background:linear-gradient(90deg, rgba(0,255,213,0.12), rgba(123,97,255,0.06));color:#041028}
-    .tile16{background:linear-gradient(90deg, rgba(123,97,255,0.18), rgba(0,255,213,0.08));color:#041028}
-    .tile32{background:linear-gradient(90deg, rgba(0,255,213,0.22), rgba(123,97,255,0.12));color:#041028}
-    .tile64{background:linear-gradient(90deg, rgba(123,97,255,0.28), rgba(0,255,213,0.18));color:#041028}
-    .tile128,.tile256,.tile512,.tile1024,.tile2048{background:linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));color:#041028}
-    .controls{display:flex;gap:8px;justify-content:center;margin-top:12px}
-    .btn{padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit;cursor:pointer}
-    .btn.neon{background:linear-gradient(90deg,var(--neon2),var(--neon1));color:#041028;font-weight:700}
-    .footer{font-size:12px;text-align:center;margin-top:12px;opacity:0.8}
-    .overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);backdrop-filter:blur(3px);}
-    .modal{background:var(--panel);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
-    @media (max-width:420px){.card{width:95%}.grid{grid-template-columns:repeat(4,calc((100% - 36px)/4));}.cell{height:calc((100% - 36px)/4);}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2048 Cyber Orange Glow Edition</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* === CYBER ORANGE GLOW THEME === */
+body {
+  background: linear-gradient(135deg, #ff9a00, #ff3c00);
+  font-family: 'Orbitron', sans-serif;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Game board */
+#game-container {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 25px rgba(255, 100, 0, 0.7);
+  border-radius: 20px;
+  padding: 15px;
+  backdrop-filter: blur(8px);
+  display: inline-block;
+}
+
+/* Grid layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  grid-gap: 10px;
+  margin-top: 10px;
+}
+
+/* Tile styles */
+.tile {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 12px;
+  font-size: 22px;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.4);
+}
+
+/* Tile colors */
+.tile-0 { background: rgba(255,255,255,0.1); }
+.tile-2 { background: #fff5e1; color: #ff8c00; }
+.tile-4 { background: #ffe4b3; color: #ff7000; }
+.tile-8 { background: #ffb84d; color: #fff; }
+.tile-16 { background: #ff9933; color: #fff; }
+.tile-32 { background: #ff751a; color: #fff; }
+.tile-64 { background: #ff5500; color: #fff; }
+.tile-128 { background: #ff3300; color: #fff; box-shadow: 0 0 15px #ff6600; }
+.tile-256 { background: #ff1a00; color: #fff; box-shadow: 0 0 20px #ff3300; }
+.tile-512 { background: #e65c00; color: #fff; box-shadow: 0 0 25px #ff6600; }
+.tile-1024 { background: #ff0000; color: #fff; box-shadow: 0 0 30px #ff4500; }
+.tile-2048 {
+  background: linear-gradient(135deg, #ff8c00, #ff2a00);
+  color: #fff;
+  box-shadow: 0 0 35px 10px rgba(255, 90, 0, 0.8);
+  animation: pulse 1.2s infinite alternate;
+}
+
+/* Animasi glowing */
+@keyframes pulse {
+  0% { box-shadow: 0 0 15px rgba(255, 120, 0, 0.5); transform: scale(1); }
+  100% { box-shadow: 0 0 30px rgba(255, 160, 0, 1); transform: scale(1.05); }
+}
+
+/* Heading */
+h1 {
+  font-size: 32px;
+  color: #fff;
+  text-shadow: 0 0 10px #ff7000;
+  margin-bottom: 15px;
+}
+
+/* Tombol */
+button {
+  background: linear-gradient(90deg, #ff8c00, #ff3c00);
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  padding: 10px 25px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: 0 0 15px rgba(255, 80, 0, 0.7);
+  transition: 0.3s;
+}
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(255, 160, 0, 0.9);
+}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card" role="application" aria-label="2048 cyber edition">
-      <h1>2048 — Cyber Edition</h1>
-      <div class="meta">
-        <div class="score" id="score">Score: 0</div>
-        <div style="display:flex;gap:8px">
-          <button class="btn" id="undoBtn">Undo</button>
-          <button class="btn neon" id="newBtn">New Game</button>
-        </div>
-      </div>
 
-      <div class="grid" id="grid" aria-hidden="false">
-        <!-- cells generated by JS -->
-      </div>
-
-      <div class="controls">
-        <button class="btn" id="tipsBtn">How to play</button>
-      </div>
-
-      <div class="footer">Use arrow keys or swipe to move tiles. Reach 2048 to win 🕹️</div>
-    </div>
-  </div>
-
-  <div id="modal" class="overlay" style="display:none">
-    <div class="modal">
-      <h3>How to play — Cyber Edition</h3>
-      <p>Use arrow keys (or swipe) to move tiles. Combine tiles with same numbers to merge. Reach 2048!</p>
-      <div style="text-align:right;margin-top:8px"><button class="btn neon" id="closeModal">Got it</button></div>
-    </div>
-  </div>
+<h1>2048 🔶 Cyber Orange Glow Edition 🔶</h1>
+<div id="game-container">
+  <div id="grid" class="grid"></div>
+</div>
+<button onclick="startGame()">New Game</button>
 
 <script>
-(function(){
-  // Game state
-  const size = 4;
-  let board = [];
-  let score = 0;
-  let prevBoard = null;
+// === GAME LOGIC ===
+let board, score = 0;
 
-  const gridEl = document.getElementById('grid');
-  const scoreEl = document.getElementById('score');
-  const newBtn = document.getElementById('newBtn');
-  const undoBtn = document.getElementById('undoBtn');
-  const tipsBtn = document.getElementById('tipsBtn');
-  const modal = document.getElementById('modal');
-  const closeModal = document.getElementById('closeModal');
+function startGame() {
+  board = [
+    [0,0,0,0],
+    [0,0,0,0],
+    [0,0,0,0],
+    [0,0,0,0]
+  ];
+  addTile();
+  addTile();
+  updateBoard();
+}
 
-  function init(){
-    board = Array.from({length:size},()=>Array(size).fill(0));
-    score = 0;
-    prevBoard = null;
-    addRandom();
-    addRandom();
-    render();
-  }
-
-  function cloneBoard(b){
-    return b.map(r=>r.slice());
-  }
-
-  function addRandom(){
-    const empties = [];
-    for(let r=0;r<size;r++) for(let c=0;c<size;c++) if(board[r][c]===0) empties.push([r,c]);
-    if(empties.length===0) return false;
-    const [r,c] = empties[Math.floor(Math.random()*empties.length)];
-    board[r][c] = Math.random()<0.9 ? 2 : 4;
-    return true;
-  }
-
-  function rotateLeft(b){
-    const out = Array.from({length:size},()=>Array(size).fill(0));
-    for(let r=0;r<size;r++) for(let c=0;c<size;c++) out[size-1-c][r]=b[r][c];
-    return out;
-  }
-
-  function moveLeft(){
-    let moved=false;
-    for(let r=0;r<size;r++){
-      let row = board[r].filter(v=>v!==0);
-      for(let i=0;i<row.length-1;i++){
-        if(row[i]===row[i+1]){ row[i]*=2; score+=row[i]; row.splice(i+1,1); }
-      }
-      while(row.length<size) row.push(0);
-      for(let c=0;c<size;c++){
-        if(board[r][c]!==row[c]) { moved=true; board[r][c]=row[c]; }
-      }
-    }
-    return moved;
-  }
-
-  function move(dir){
-    // 0:left,1:up,2:right,3:down
-    prevBoard = {board: cloneBoard(board), score};
-    let rotated=0, moved=false;
-    if(dir===0) rotated=0;
-    if(dir===1){ board = rotateLeft(board); rotated=1; }
-    if(dir===2){ board = rotateLeft(rotateLeft(board)); rotated=2; }
-    if(dir===3){ board = rotateLeft(rotateLeft(rotateLeft(board))); rotated=3; }
-
-    moved = moveLeft();
-
-    // rotate back
-    for(let i=0;i< (4-rotated)%4;i++) board = rotateLeft(board);
-    if(moved){
-      addRandom();
-      render();
-      checkEnd();
+function addTile() {
+  let empty = [];
+  for (let i=0; i<4; i++) {
+    for (let j=0; j<4; j++) {
+      if (board[i][j] === 0) empty.push({x:i, y:j});
     }
   }
-
-  function undo(){
-    if(!prevBoard) return;
-    board = cloneBoard(prevBoard.board);
-    score = prevBoard.score;
-    prevBoard = null;
-    render();
+  if (empty.length > 0) {
+    let spot = empty[Math.floor(Math.random() * empty.length)];
+    board[spot.x][spot.y] = Math.random() < 0.9 ? 2 : 4;
   }
+}
 
-  function checkEnd(){
-    for(let r=0;r<size;r++) for(let c=0;c<size;c++) if(board[r][c]===2048){ setTimeout(()=>alert('You win! 🎉 — Cyber Edition'),10); return; }
-    // possible moves?
-    for(let r=0;r<size;r++) for(let c=0;c<size;c++) if(board[r][c]===0) return;
-    // check neighbors
-    for(let r=0;r<size;r++) for(let c=0;c<size;c++){
-      const v=board[r][c];
-      if((r+1<size && board[r+1][c]===v) || (c+1<size && board[r][c+1]===v)) return;
+function updateBoard() {
+  const grid = document.getElementById("grid");
+  grid.innerHTML = "";
+  for (let i=0; i<4; i++) {
+    for (let j=0; j<4; j++) {
+      const tile = document.createElement("div");
+      tile.classList.add("tile");
+      tile.classList.add(`tile-${board[i][j]}`);
+      tile.textContent = board[i][j] === 0 ? "" : board[i][j];
+      grid.appendChild(tile);
     }
-    setTimeout(()=>alert('Game over — no moves left 😵'),10);
   }
+}
 
-  function render(){
-    scoreEl.textContent = 'Score: '+score;
-    gridEl.innerHTML='';
-    for(let r=0;r<size;r++){
-      for(let c=0;c<size;c++){
-        const v = board[r][c];
-        const cell = document.createElement('div');
-        cell.className='cell'+(v?(' tile'+v):'');
-        cell.textContent = v?v:'';
-        gridEl.appendChild(cell);
+document.addEventListener('keydown', (e) => {
+  switch(e.key) {
+    case 'ArrowUp': move(0,-1); break;
+    case 'ArrowDown': move(0,1); break;
+    case 'ArrowLeft': move(-1,0); break;
+    case 'ArrowRight': move(1,0); break;
+  }
+  updateBoard();
+});
+
+function move(dx, dy) {
+  let moved = false;
+  for (let i=0; i<4; i++) {
+    for (let j=0; j<4; j++) {
+      let x = dx>0 ? 3-i : i;
+      let y = dy>0 ? 3-j : j;
+      if (board[y][x] !== 0) {
+        let nx = x + dx, ny = y + dy;
+        while (nx >= 0 && nx < 4 && ny >= 0 && ny < 4) {
+          if (board[ny][nx] === 0) {
+            board[ny][nx] = board[y][x];
+            board[y][x] = 0;
+            x = nx; y = ny;
+            nx += dx; ny += dy;
+            moved = true;
+          } else if (board[ny][nx] === board[y][x]) {
+            board[ny][nx] *= 2;
+            board[y][x] = 0;
+            moved = true;
+            break;
+          } else break;
+        }
       }
     }
   }
+  if (moved) addTile();
+}
 
-  // keyboard
-  window.addEventListener('keydown',e=>{
-    if(['ArrowLeft','ArrowUp','ArrowRight','ArrowDown'].includes(e.key)){
-      e.preventDefault();
-      if(e.key==='ArrowLeft') move(0);
-      if(e.key==='ArrowUp') move(1);
-      if(e.key==='ArrowRight') move(2);
-      if(e.key==='ArrowDown') move(3);
-    }
-    if(e.key.toLowerCase()==='r') init();
-    if(e.key.toLowerCase()==='u') undo();
-  });
-
-  // simple touch support
-  let touchStartX=0,touchStartY=0;
-  window.addEventListener('touchstart',e=>{ const t=e.touches[0]; touchStartX=t.clientX; touchStartY=t.clientY; });
-  window.addEventListener('touchend',e=>{ const t=e.changedTouches[0]; const dx=t.clientX-touchStartX; const dy=t.clientY-touchStartY; if(Math.hypot(dx,dy)<30) return; if(Math.abs(dx)>Math.abs(dy)){ if(dx>0) move(2); else move(0);} else { if(dy>0) move(3); else move(1);} });
-
-  // buttons
-  newBtn.addEventListener('click',init);
-  undoBtn.addEventListener('click',undo);
-  tipsBtn.addEventListener('click',()=>modal.style.display='flex');
-  closeModal.addEventListener('click',()=>modal.style.display='none');
-
-  // init
-  init();
-})();
+startGame();
 </script>
+
 </body>
 </html>
