@@ -5,6 +5,14 @@
   “Turning caffeine ☕ into code, and bugs 🐛 into features 🚀”
 </p>
 
+###
+
+<div align="center">
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=CyberTecno.CyberTecno&"  />
+</div>
+
+###
+
 ---
 
 <p align="center">
@@ -61,6 +69,10 @@
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=CyberTecno&layout=compact&theme=radical" />
 </p>
 
+<div align="center">
+  <img src="https://github-profile-trophy.vercel.app?username=CyberTecno&theme=dracula&column=-1&row=1&margin-w=8&margin-h=8&no-bg=false&no-frame=false&order=4" height="150" alt="trophy graph"  />
+</div>
+
 ---
 
 ### 🌐 Connect with me
@@ -71,5 +83,15 @@
 </p>
 
 ---
+
+###
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/CyberTecno/CyberTecno/output/pacman-contribution-graph-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/CyberTecno/CyberTecno/output/pacman-contribution-graph.svg">
+  <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/CyberTecno/CyberTecno/output/pacman-contribution-graph.svg">
+</picture>
+
+###
 
 ⭐ _“Code is my weapon, creativity my armor.”_ 🦾
