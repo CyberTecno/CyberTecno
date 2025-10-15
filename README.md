@@ -17,7 +17,7 @@
 
 <div style="background:#0d0d0d; padding:20px; border-radius:15px;">
   <p align="center">
-    <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3Z3l3YmU1MWFldHNmYzkyOTk3cHVyaGpjZ3RydGNuMDVrYnR3eGwwaCZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/DeBBINXN86r8Q/giphy.gif" width="90%" style="border-radius:12px; box-shadow:0 0 25px #ff9b00;">
+    <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3Mm51amJkOWE0dTRpZHRodzNhNGlseTJxMGNyY3cxYXFmNmsweWs5cyZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/PJvvewo5mTtXW/giphy.gif" width="90%" style="border-radius:12px; box-shadow:0 0 25px #ff9b00;">
   </p>
 </div>
 
