@@ -16,7 +16,7 @@
 ### 🎮 Play My Game
 
 <p align="center">
-  <a href="https://cybertecno.github.io/2048/" target="_blank">
+  <a href="https://cybertecno.github.io/CyberTecno/" target="_blank">
     <img src="https://img.shields.io/badge/Play%20Now-2048%20Cyber%20Edition-blueviolet?style=for-the-badge&logo=gamepad" />
   </a>
 </p>
