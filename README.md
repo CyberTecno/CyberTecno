@@ -66,15 +66,11 @@
 
 ### 📈 GitHub Stats
 
-<p align="center">
-  <img src="![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=CyberTecno&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage)" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=CyberTecno&layout=compact&theme=radical" />
-</p>
-
 <div align="center">
-  <img src="https://github-profile-trophy.vercel.app?username=CyberTecno&theme=dracula&column=-1&row=1&margin-w=8&margin-h=8&no-bg=false&no-frame=false&order=4" height="150" alt="trophy graph"  />
-</div>
 
+---
+<img src="https://nirzak-streak-stats.vercel.app/?user=CyberTecno&theme=dark&hide_border=false"/>
+</div>
 ---
 
 ### 🌐 Connect with me
