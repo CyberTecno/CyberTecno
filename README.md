@@ -64,15 +64,6 @@
   <img src="https://img.shields.io/badge/-Replicate-000000?style=for-the-badge&logo=replicate&logoColor=white"/>
 </div>
 
-### 📈 GitHub Stats
-
-<div align="center">
-
----
-<img src="https://nirzak-streak-stats.vercel.app/?user=CyberTecno&theme=dark&hide_border=false"/>
-</div>
----
-
 ### 🌐 Connect with me
 
 <div align="center">
