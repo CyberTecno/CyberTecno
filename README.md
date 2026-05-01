@@ -1,7 +1,7 @@
 <h1 align="center">👾 Welcome to CyberTecno’s Realm 👾</h1>
 
 <p align="center">
-  <b>AI Engineer | Game Enthusiast | Robotic Engineer 💻⚡</b><br>
+  <b>AI & Machine Learning Engineer | Game Enthusiast | Robotic Engineer 💻⚡</b><br>
   “Turning caffeine ☕ into code, and bugs 🐛 into features 🚀”
 </p>
 
